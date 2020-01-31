@@ -1,28 +1,69 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header />
+    <Landen v-bind:landen="landen" v-on:verwijder-land="verwijderLand"/>
+    <VoegLandToe v-on:voeg-toe="voegLandToe"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/layout/Header'
+import Landen from './components/Landen'
+import VoegLandToe from './components/VoegLandToe'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Header,
+    Landen,
+    VoegLandToe
+  },
+  data() {
+    return {
+      landen: [
+        {
+          id: 1,
+          naam: "Australië",
+          steden: "Sydney",
+          url: "",
+          bezocht: false
+        },
+        {
+          id: 2,
+          naam: "IJsland",
+          steden: "Reykjavik",
+          url: "",
+          bezocht: true
+        },
+        {
+          id: 3,
+          naam: "Engeland",
+          steden: "London",
+          url: "",
+          bezocht: false
+        }
+      ]
+    }
+  },
+  methods: {
+    verwijderLand(id) {
+      this.landen = this.landen.filter(land => land.id !== id);
+    },
+    voegLandToe(nieuwLand) {
+      this.landen = [...this.landen, nieuwLand];
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Comfortaa', cursive;
+}
+
+.fa {
+  font-family: "FontAwesome";
 }
 </style>
