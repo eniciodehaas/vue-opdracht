@@ -11,5 +11,9 @@ export default {
 </script>
 
 <style scoped>
-
+    .header {
+        padding: 1em;
+        background-color: #ffcc00;
+        margin-bottom: 4em;
+    }
 </style>

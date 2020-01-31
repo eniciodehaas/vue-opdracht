@@ -27,7 +27,7 @@ export default {
                 id: uuid.v4(),
                 naam: this.naam,
                 steden: this.steden,
-                url: this.url,
+                url: "linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.1) 20%, rgba(255,255,255,.6) 50%, rgba(255,255,255,.9)), url(" + this.url + ")",
                 bezocht: false
             }
 
@@ -46,5 +46,11 @@ export default {
         display: flex;
         flex-direction: column;
         width: 300px;
+        margin: 0 0 0 3em;
+    }
+
+    input {
+        margin-bottom: 1em;
+        padding: .2em;
     }
 </style>

@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div v-bind:key="land.id" v-for="land in landen">
+    <div class="container">
+        <div v-bind:key="land.id" v-for="land in landen" class="land">
             <Land v-bind:land="land" v-on:verwijder-land="$emit('verwijder-land', land.id)"/>
         </div>
     </div>
@@ -19,5 +19,14 @@ export default {
 </script>
 
 <style scoped>
-    
+    .land {
+        width: 300px;
+        margin: 0 auto;
+    }
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 400px));
+        grid-row-gap: 3em;
+        margin-bottom: 3em;
+    }
 </style>
